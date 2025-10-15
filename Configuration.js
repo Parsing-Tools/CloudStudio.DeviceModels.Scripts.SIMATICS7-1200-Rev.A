@@ -23,15 +23,18 @@ function getEndpoints(deviceAddress, endpoints)
   // En el código siguiente, se crean dos endpoints. El primero es un sensor de 
   // temperatura, mientras que el segundo es un sensor de dióxido de carbono.
 
-  endpoints.addEndpoint("1", "Temperatura", endpointType.temperatureSensor);
+  // endpoints.addEndpoint("1", "Temperature sensor", endpointType.temperatureSensor);
+  // endpoints.addEndpoint("2", "CO2 sensor", endpointType.ppmConcentrationSensor, ppmConcentrationSensorSubType.carbonDioxide);
+    endpoints.addEndpoint("1", "Temperatura", endpointType.temperatureSensor);
     endpoints.addEndpoint("2", "Humedad Aire", endpointType.humiditySensor);
     endpoints.addEndpoint("3", "Humedad Tierra", endpointType.humiditySensor);
-    var e = endpoints.addEndpoint("4", "Flujo", endpointType.genericSensor);
-    e.variableTypeId = 1027;
+    var e = endpoints.addEndpoint("4", "Flujo", endpointType.genericFlowSensor);
+    e.variableTypeId = 1342;
     endpoints.addEndpoint("5", "Valvula", endpointType.appliance,applianceEndpointSubType.valve);
     endpoints.addEndpoint("6", "Presion Agua", endpointType.pressureSensor);
-    var t = endpoints.addEndpoint("7", "Tiempo", endpointType.genericSensor);
-    t.variableTypeId = 1028;
+ // endoponts.addEndpoint("7", "Tiempo", endpointType.runTimeMeter);
+    var t = endoponts.addEndpoint("7", "Tiempo", endpointType.genericSensor);
+    t.variableTypeId = 1346;
    
       
 }
@@ -78,6 +81,6 @@ function updateEndpointUIRules(endpoint, rules)
   // - Los endpoints no se pueden eliminar.
   // - El subtipo de endpoint se puede cambiar, pero solo para el segundo endpoint.
   
-   rules.canDelete = true;
+  // rules.canDelete = false;
   // rules.canEditSubType = (endpoint.address == "2");
 }
